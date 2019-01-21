@@ -55,10 +55,11 @@ class Dog
             SQL
     dog = DB[:conn].execute(sql, name, breed)
     unless dog.empty?
-      new_from_db(dog)
+      dog_obj = new_from_db(dog)
     else
-      create({id: dog[0], name: dog[1], breed: dog[2]})
+      dog_obj = create({id: dog[0], name: dog[1], breed: dog[2]})
     end
+    return dog_obj
   end
   
   def update
