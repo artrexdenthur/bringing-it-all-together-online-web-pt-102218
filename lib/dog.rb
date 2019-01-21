@@ -53,6 +53,5 @@ Class Dog
     end
     return self
   end
-    
 
 end
