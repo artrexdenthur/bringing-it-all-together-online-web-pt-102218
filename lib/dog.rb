@@ -48,6 +48,8 @@ class Dog
     new_from_db(DB[:conn].execute(sql, name).first)
   end
   
+  def self.find_or_create_by()
+  
   def update
     sql = <<-SQL
               UPDATE dogs
