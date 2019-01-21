@@ -1,4 +1,4 @@
-Class Dog
+class Dog
 
   attr_accessor :id
   
@@ -53,3 +53,4 @@ Class Dog
     end
     return self
   end
+end
