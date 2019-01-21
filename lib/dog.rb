@@ -30,6 +30,26 @@ Class Dog
             SQL
     new_from_db(DB[:conn].execute(sql, name).first)
   end
+  
+  def update
+    sql = <<-SQL
+              UPDATE dogs
+              SET name = ?
+              WHERE id = ?;
+            SQL
+    DB[:conn].execute(sql, self.name, self.id)
+  end
+  
+  def save
+    if self.id
+      self.update
+    else
+      sql = <<-SQL
+                INSERT INTO dogs(name)
+                VALUES (?);
+              SQL
+      DB[:conn].execute(sql, self.name)
+      @id = DB[:conn].execute("SELECT last_")
     
 
 end
