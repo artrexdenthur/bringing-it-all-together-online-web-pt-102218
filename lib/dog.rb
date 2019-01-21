@@ -8,6 +8,10 @@ class Dog
     @breed = breed
   end
   
+  def self.create(att_hash)
+    new_dog = new(id: att_hash[:id], name: att_hash[:name], breed: att_hash[:breed])
+    
+  
   def self.create_table
     sql = <<-SQL
               CREATE TABLE dogs(
