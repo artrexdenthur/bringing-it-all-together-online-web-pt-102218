@@ -56,9 +56,9 @@ class Dog
     binding.pry
     dog = DB[:conn].execute(sql, name, breed)
     unless dog.empty?
-      dog_obj = new_from_db(dog)
+      dog_obj = new_from_db(dog.first)
     else
-      dog_obj = create({id: dog[0], name: dog[1], breed: dog[2]})
+      dog_obj = create({name: name, breed: breed})
     end
     return dog_obj
   end
