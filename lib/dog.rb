@@ -53,7 +53,7 @@ class Dog
               SELECT * FROM dogs
               WHERE name = ? AND breed = ?;
             SQL
-    found = 
+    dog = DB[:conn].execute(sql, name, breed)
   end
   
   def update
