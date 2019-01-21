@@ -48,7 +48,11 @@ class Dog
     new_from_db(DB[:conn].execute(sql, name).first)
   end
   
-  def self.find_or_create_by(name: nil, breed: nil, id: nil)
+  def self.find_or_create_by(name:, breed:)
+    sql = <<-SQL
+              SELECT * FROM dogs
+              WHERE name = ?
+  end
   
   def update
     sql = <<-SQL
