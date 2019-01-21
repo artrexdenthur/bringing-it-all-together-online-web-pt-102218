@@ -54,7 +54,10 @@ class Dog
               WHERE name = ? AND breed = ?;
             SQL
     dog = DB[:conn].execute(sql, name, breed)
-    if 
+    unless dog.empty?
+      new_from_db(dog)
+    else
+      create({id: dog[0], name: dog[1], breed: dog[2]})
   end
   
   def update
