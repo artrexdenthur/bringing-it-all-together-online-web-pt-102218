@@ -54,7 +54,7 @@ class Dog
               WHERE name = ? AND breed = ?;
             SQL
     binding.pry
-    dog = DB[:conn].execute(sql, name, breed).first
+    dog = DB[:conn].execute(sql, name, breed)
     unless dog.empty?
       dog_obj = new_from_db(dog)
     else
